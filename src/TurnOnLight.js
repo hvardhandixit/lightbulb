@@ -3,7 +3,7 @@ import React from "react";
 class TurnOnLight extends React.Component{
     render(){
         return(
-            <div className="ToggleButton TurnOnButton">Turn on!</div>
+            <div className="ToggleButton TurnOnButton" onClick={this.props.onClick}>Turn on!</div>
         )
     }
 }
