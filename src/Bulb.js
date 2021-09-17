@@ -3,9 +3,11 @@ import ReactDOM from 'react-dom';
 import lightOnImage from './light-bulb.png';
 import lightOffImage from './light-bulb (1).png';
 import TurnOffLight from './TurnOffLight';
+import TurnOnLight from './TurnOnLight';
 
 class Bulb extends React.Component{
   constructor(){
+    super();
     this.state = {background: '#000000', lightsOn: false};
   }
 
@@ -30,7 +32,7 @@ class Bulb extends React.Component{
       button = <TurnOnLight onClick={this.handleTurnOff}/>
     }
     return(
-      <div className='container'>
+      <div className='container' style={{background:this.state.background}}>
         {bulb}
         {button}
       </div>
@@ -38,3 +40,5 @@ class Bulb extends React.Component{
   }
 
 }
+
+export default Bulb;
