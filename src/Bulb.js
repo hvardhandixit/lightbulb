@@ -8,15 +8,19 @@ import TurnOnLight from './TurnOnLight';
 class Bulb extends React.Component{
   constructor(){
     super();
-    this.state = {background: '#000000', lightsOn: false};
+    this.state = {background: '#ffe07d', lightsOn: true};
+    this.handleTurnOff = this.handleTurnOff.bind(this);
+    this.handleTurnOn = this.handleTurnOn.bind(this);
   }
 
   handleTurnOff() {
-    this.setState({background: '#000000', lightsOn: false});
+    this.setState({background: '#000000'});
+    this.setState({lightsOn: false});
   }
 
   handleTurnOn(){
-    this.setState({background:'#ffe07d', lightsOn: true});
+    this.setState({background:'#ffe07d'});
+    this.setState({lightsOn: true});
   }
 
   render(){
@@ -24,15 +28,15 @@ class Bulb extends React.Component{
     let bulb;
     let button;
     if(isLightOn){
-      bulb = <img src={lightOnImage} />
-      button = <TurnOffLight onClick={this.handleTurnOn}/>
+      bulb = <img src={lightOnImage} alt='light-img'/>
+      button = <TurnOffLight onClick={this.handleTurnOff}/>
     }
     else{
-      bulb = <img src={lightOffImage} />
-      button = <TurnOnLight onClick={this.handleTurnOff}/>
+      bulb = <img src={lightOffImage} alt='light-img'/>
+      button = <TurnOnLight onClick={this.handleTurnOn}/>
     }
     return(
-      <div className='container' style={{background:this.state.background}}>
+      <div className='container' style={{background:this.state.background }}>
         {bulb}
         {button}
       </div>
